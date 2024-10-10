@@ -4,7 +4,7 @@ beginning = 0
 end = 58
 
 questions = pd.DataFrame(pd.read_csv('../questions/questions.csv'))
-questions_ids = questions.iloc[:, 0]
+questions_ids = set(questions.iloc[:, 0])
 del questions
 
 
@@ -12,8 +12,7 @@ def get_answers(posts):
     # PostTypeId only 2 (answers)
     posts = posts.loc[posts['PostTypeId'] == 2]
 
-    # Only questions with last activity date greater than 2023-01-01
-    posts = posts.loc[posts['ParentId'] in questions_ids]
+    posts = posts.loc[posts['ParentId'].isin(questions_ids)]
 
     #print(posts.head())
     
