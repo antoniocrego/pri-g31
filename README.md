@@ -6,4 +6,4 @@
     - Pedro Lima, up202108806@up.pt
     - Pedro Januário, up202108768@up.pt
 
-- [M1](m1/)
+- [M1](M1/)
