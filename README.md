@@ -7,3 +7,4 @@
     - Pedro Januário, up202108768@up.pt
 
 - [M1](M1/)
+- [M2](M2/)

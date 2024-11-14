@@ -1,0 +1,1 @@
+- usar slop fez com que os dois sistemas se comportassem de igual forma
