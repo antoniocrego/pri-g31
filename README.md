@@ -1,7 +1,10 @@
-## Execution
+# PRI 2024
 
-Execute ```script.py``` from this directory (executing scripts inside folders individually will not work).
+- Group 31
+    - António Rego, up202108666@up.pt
+    - Daniel Bernardo, up202108667@up.pt
+    - Pedro Lima, up202108806@up.pt
+    - Pedro Januário, up202108768@up.pt
 
-## ```count.py```
-
-Auxiliary script that counts total questions and answers gathered.
+- [M1](M1/)
+- [M2](M2/)
