@@ -1,0 +1,7 @@
+{
+    "query": "Title:(Lazy loading in JS)^3 OR Body:(Lazy loading in JS) OR Tags:(Lazy loading in JS)^2",
+    "fields": "Id, score, Title, Body",
+    "params": {
+        "defType": "edismax"
+    }
+}

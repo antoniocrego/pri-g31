@@ -1,0 +1,7 @@
+{
+    "query": "Title:(How to do type conversion in C)^3 OR Body:(How to do type conversion in C) OR Tags:(How to do type conversion in C)^2",
+    "fields": "Id, score, Title, Body",
+    "params": {
+        "defType": "edismax"
+    }
+}

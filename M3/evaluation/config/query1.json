@@ -1,0 +1,7 @@
+{
+    "query": "Title:(My Python code is missing the last iteration)^3 OR Body:(My Python code is missing the last iteration) OR Tags:(My Python code is missing the last iteration)^2",
+    "fields": "Id, score, Title, Body",
+    "params": {
+        "defType": "edismax"
+    }
+}

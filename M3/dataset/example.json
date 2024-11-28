@@ -1,0 +1,15 @@
+{
+    "Id":[38895160],
+    "PostTypeId":[1],
+    "AcceptedAnswerId":[3.8896825E7],
+    "Score":[1],
+    "Body":"Here I have used serialize method to fetch the data but I am not getting image from that please help to find the solution or give me alternative of serialize method.\n\n```\n$( \"#button\" ).click(function(){\n    $.ajax({\n        type: 'POST',\n        url: ajax_url,\n        enctype: 'multipart/form-data',     \n        data:{\n\n            data_array:$( \"#form\" ).serialize(),\n            action: 'product_add_form_submit'\n        },\n        success: function (data) {\n            alert('Successfully Submitted');\n        }\n    });\n});\n```\n\n",
+    "Title":"Ajax Image upload using serialize method",
+    "CreationDate":["2016-08-11T11:30:33.317Z"],
+    "LastActivityDate":["2023-01-25T10:31:32.853Z"],
+    "LastEditDate":["2016-08-13T13:18:36.207Z"],
+    "Tags":"['javascript' 'php' 'mysql' 'ajax']",
+    "id":"47bcd6df-26e3-4ee3-8b12-871967e726ff",
+    "_version_":1815053570767061506,
+    "_root_":"47bcd6df-26e3-4ee3-8b12-871967e726ff"
+}
