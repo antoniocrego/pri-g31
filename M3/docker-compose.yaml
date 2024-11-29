@@ -1,0 +1,15 @@
+services:
+  solr:
+    image: solr:9
+    ports:
+      - 8983:8983
+    restart: unless-stopped
+    volumes:
+      - ./solr/dataset:/data
+  frontend:
+    build:
+      context: ./frontend
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+
