@@ -5,7 +5,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{JSON.stringify(children)}</body>
+      <body>{children}</body>
     </html>
   )
 }
