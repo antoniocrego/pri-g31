@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { lusitana } from '@/app/ui/fonts';
 
 export default async function Page({
     params,
@@ -7,8 +8,30 @@ export default async function Page({
 }) {
     const id = (await params).id;
     const doc = await getDocument(id);
+
+    const question = doc.q;
+    const answers = doc.a;
     
-    return <p>{JSON.stringify(doc)}</p>;
+    return (
+        <div className="p-2 flex flex-col justify-center rounded-lg bg-gray-50 w-full">
+            <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
+                Question: "{question["Title"]}"
+            </p>
+            <div className="p-4 flex flex-col justify-center rounded-lg bg-blue-50 w-full md:px-20 my-2">
+                {JSON.stringify(question)}
+            </div>
+            <div>
+                <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
+                    Answers:
+                </p>
+                {answers.map((answer : Object) => (
+                    <div className="p-4 flex flex-col justify-center rounded-lg bg-yellow-50 w-full md:px-20 my-2">
+                        {JSON.stringify(answer)}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }
 
 async function getDocument(id: number) {
