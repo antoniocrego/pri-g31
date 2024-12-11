@@ -7,7 +7,7 @@ export default async function Page({
 }) {
     const id = (await params).id;
     const doc = await getDocument(id);
-    console.log(doc);
+    
     return <p>{JSON.stringify(doc)}</p>;
 }
 
