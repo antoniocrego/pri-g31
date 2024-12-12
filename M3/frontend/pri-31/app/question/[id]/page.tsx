@@ -43,8 +43,13 @@ export default async function Page({
                     Answers:
                 </p>
                 {answers.map((answer: Answer) => (
-                    <div className="p-4 flex flex-col justify-center rounded-lg bg-yellow-50 w-full my-2">
+                    <div className={`p-4 flex flex-col justify-center rounded-lg
+                    ${answer.accepted ? 'bg-green-200' : 'bg-yellow-50'}
+                    w-full my-2`}>
                         <div>
+                            <p className={`${lusitana.className} text-gray-800 md:text-xl md:leading-normal`}>
+                                <strong>{answer.accepted ? 'ACCEPTED' : ''}</strong>
+                            </p>
                             <p className={`${lusitana.className} text-gray-800 md:text-xl md:leading-normal`}>
                                 Score: {answer.Score}
                             </p>
