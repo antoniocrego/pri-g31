@@ -44,6 +44,7 @@
         "breakWords": "true",
         "maxChanges": 10
        }
+       
       ],
       "queryAnalyzerFieldType": "text_general"
      }
