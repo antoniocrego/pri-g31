@@ -30,6 +30,8 @@ def fetch_solr_results(query_file, solr_uri, collection):
     # Construct the Solr request URL
     uri = f"{solr_uri}/{collection}/select"
 
+    print(query_params)
+
     try:
         # Send the POST request to Solr
         response = requests.post(uri, json=query_params)
