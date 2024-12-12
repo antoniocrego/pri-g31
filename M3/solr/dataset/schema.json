@@ -20,6 +20,7 @@
                 "filters":[
                     {"class":"solr.LowerCaseFilterFactory"},
                     {"class":"solr.PorterStemFilterFactory"},
+                    {"class":"solr.SynonymGraphFilterFactory", "synonyms":"synonyms.txt"},
                     {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true}
                 ]
             }
@@ -71,6 +72,13 @@
                     {"class":"solr.ASCIIFoldingFilterFactory", "preserveOriginal":true}
                 ]
             }
+        },
+        {
+            "name":"coursevector",
+            "class":"solr.DenseVectorField",
+            "vectorDimension": 384,
+            "similarityFunction":"cosine",
+            "knnAlgorithm":"hnsw"
         }
     ],
     "add-field": [
@@ -88,6 +96,12 @@
             "name": "Tags",
             "type": "tags",
             "indexed": true
+        },
+        {
+            "name": "vector",
+            "type": "coursevector",
+            "indexed": true,
+            "stored": true
         }
     ]
 }

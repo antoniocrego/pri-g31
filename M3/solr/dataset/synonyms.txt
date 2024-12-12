@@ -1,0 +1,7 @@
+js, javascript, ECMAScript
+python, py
+cpp, c++, C plus plus
+c, dunas
+java, jvm, jar
+ruby, ruby language, rb
+php, PHP, hypertext preprocessor
