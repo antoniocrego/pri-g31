@@ -4,7 +4,7 @@
     "params": {
         "defType": "edismax",
         "qf": "Title^3 Body Tags^2",
-        "bf": "log(Score+1)",
+        "bf": "log(Score)",
         "pf": "Title^5 Body^3",
         "ps": 2,
         "hl": true,
