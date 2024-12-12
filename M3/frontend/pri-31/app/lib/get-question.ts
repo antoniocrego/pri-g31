@@ -10,8 +10,9 @@ export async function getDocument(id: number) {
         ":" + port +
         "/solr/" +
         core +
-        "/select?indent=true&q.op=OR&q=Id%3A" +
-        id;
+        "/select?indent=true&q.op=AND&q=Id%3A" +
+        id + 
+        "%0APostTypeId%3A1";
 
     const data = await (await fetch(uri)).json();
 
@@ -20,6 +21,7 @@ export async function getDocument(id: number) {
 
     const question = data["response"]["docs"][0];
     const answer_ids = question["Answers"];
+    const accepted_answer_id = question["AcceptedAnswerId"];
 
     return {
         q: question,
@@ -27,12 +29,20 @@ export async function getDocument(id: number) {
     };
 }
 
-async function getAnswers(answer_ids: [number]) {
+export interface Answer {
+    key: number;
+    Score: number;
+    Body: string;
+    CreationDate: string;
+    LastEditDate: string;
+}
+
+async function getAnswers(answer_ids: number[]) {
     const address = process.env.SOLR_ADDR;
     const port = process.env.SOLR_PORT;
     const core = process.env.SOLR_CORE;
 
-    let ret: Object[] = [];
+    let ret: Answer[] = [];
 
     for (const id of answer_ids) {
         const uri = "http://" +
@@ -40,8 +50,9 @@ async function getAnswers(answer_ids: [number]) {
             ":" + port +
             "/solr/" +
             core +
-            "/select?indent=true&q.op=OR&q=Id%3A" +
-            id;
+            "/select?indent=true&q.op=AND&q=Id%3A" +
+            id + 
+            "%0APostTypeId%3A2";
     
         const data = await (await fetch(uri)).json();
 
@@ -52,6 +63,10 @@ async function getAnswers(answer_ids: [number]) {
         a.key = id;     // so that nextjs doesn't complain
         ret.push(a);
     }
+
+    ret.sort((a, b) => {
+        return b.Score - a.Score;
+    })
     
     return ret;
 }
