@@ -102,6 +102,12 @@
             "type": "coursevector",
             "indexed": true,
             "stored": true
-        }
+        },
+		{
+			"name": "Score",
+			"type": "pint",
+			"indexed": true,
+			"multiValued": false
+		}
     ]
 }
