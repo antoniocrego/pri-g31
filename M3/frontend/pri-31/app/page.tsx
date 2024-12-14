@@ -1,5 +1,5 @@
 import { lusitana } from '@/app/ui/fonts';
-import { Search } from "@/app/ui/search";
+import Search from "@/app/ui/search";
 
 export default function Page() {
   return (

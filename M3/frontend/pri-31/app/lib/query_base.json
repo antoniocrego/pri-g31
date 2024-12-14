@@ -1,7 +1,15 @@
 {
-    "query": "Title:(My Python code is missing the last iteration)^3 OR Body:(My Python code is missing the last iteration) OR Tags:(My Python code is missing the last iteration)^2",
-    "fields": "Id, score, Title, Body",
+    "query": "PLACEHOLDER",
+    "fields": "Id, Score, Title, Body",
     "params": {
-        "defType": "edismax"
+        "defType": "edismax",
+        "qf": "Title^3 Body Tags^2",
+        "bf": "if(eq(Score,0),0,if(eq(Score,-1),-0.15,product(log(abs(Score)),div(Score,abs(Score)))))",
+        "pf": "Title^5 Body^3",
+        "ps": 2,
+        "hl": true,
+        "hl.fl": "Body",
+        "hl.simple.pre": "<em>",
+        "hl.simple.post": "</em>"
     }
 }

@@ -27,7 +27,7 @@ export default async function Page({
                     Creation Date: <Date date={question.CreationDate}/>
                 </p>
                 <p className={`${lusitana.className} text-gray-800 md:text-xl md:leading-normal`}>
-                    Last Edit Date: <Date date={question.LastEditDate}/>
+                    Last Edit Date: {question.LastEditDate == null ? 'Never' : <Date date={question.LastEditDate}/>}
                 </p>
                 <p className={`${lusitana.className} text-gray-800 md:text-xl md:leading-normal`}>
                     Tags: <Tags tags={question.Tags}/>

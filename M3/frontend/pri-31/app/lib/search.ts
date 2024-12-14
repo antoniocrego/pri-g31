@@ -1,8 +1,4 @@
-'use server';
-
 import query_base from '@/app/lib/query_base.json';
-import { redirect } from 'next/dist/server/api-utils';
-import { notFound } from 'next/navigation';
 
 export async function search(term: string) {
     term = term.toString();
@@ -11,7 +7,7 @@ export async function search(term: string) {
     const core = process.env.SOLR_CORE;
 
     let query = query_base;
-    // query["query"] = term;
+    query["query"] = term;
 
     const uri = "http://" +
         address +
@@ -19,6 +15,8 @@ export async function search(term: string) {
         "/solr/" +
         core +
         "/select";
+
+    console.log(uri);
 
     const data = await (await fetch(uri, {
         method: "POST",
@@ -30,11 +28,11 @@ export async function search(term: string) {
 
     const docs = data.response.docs;
 
+    let result_ids: number[] = [];
+
     docs.forEach((doc: any) => {
-        console.log(doc.Id[0]);
+        result_ids.push(parseInt(doc.Id[0]));
     });
 
-    if (data.response.numFound === 0) {
-        notFound();
-    }
+    return result_ids;
 }
