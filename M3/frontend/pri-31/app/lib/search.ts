@@ -28,11 +28,13 @@ export async function search(term: string) {
 
     const docs = data.response.docs;
 
-    let result_ids: number[] = [];
+    let results: { [key: number]: any } = {};
 
     docs.forEach((doc: any) => {
-        result_ids.push(parseInt(doc.Id[0]));
+        doc.Id = parseInt(doc.Id);
+        doc.PostTypeId = parseInt(doc.PostTypeId[0]);
+        results[parseInt(doc.Id)] = doc;
     });
 
-    return result_ids;
+    return results;
 }

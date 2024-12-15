@@ -1,6 +1,6 @@
 {
     "query": "PLACEHOLDER",
-    "fields": "Id, Score, Title, Body",
+    "fields": "Id, PostTypeId, Score, Title, Body",
     "params": {
         "defType": "edismax",
         "qf": "Title^3 Body Tags^2",

@@ -1,7 +1,15 @@
 import { search } from '@/app/lib/search';
 import Search from '@/app/ui/search';
 import { lusitana } from '@/app/ui/fonts';
-import Result from '@/app/ui/search';
+import ReactMarkdown from 'react-markdown';
+
+function prepareBody(body: string) {
+    const limit = 250;
+    if (body.length > limit) {
+        return body.substring(0, limit) + '...';
+    }
+    return body;
+}
 
 export default async function Page(props: {
     searchParams?: Promise<{
@@ -11,7 +19,8 @@ export default async function Page(props: {
     const searchParams = await props.searchParams;
     const query: string = searchParams?.query || '';
 
-    const results: number[] = await search(query);
+    const results = await search(query);
+    const num_results = Object.keys(results).length;
 
     return (
         <div>
@@ -20,14 +29,24 @@ export default async function Page(props: {
           </div>
           <div className="p-4 flex flex-col justify-center rounded-lg bg-gray-50 w-full">
             <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-                Results for "{query}"
+                {num_results > 0 ? `Results for "${query}"` : `No results for "${query}"`}
             </p>
-            {results.map((id: number) => (
-                <div key={id} className="p-4 flex flex-col justify-center rounded-lg bg-blue-50 w-full my-2">
-                    <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-                        {id}
-                    </p>
-                </div>
+            {Object.entries(results).map(([key, value]) => (
+                <a href={`/question/${value.Id}`}>
+                    <div className="p-4 flex flex-col justify-center rounded-lg bg-blue-50 w-full my-2">
+                        <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
+                            Question: "{value.Title}"
+                        </p>
+                        <p className={`${lusitana.className} text-gray-800 md:text-xl md:leading-normal`}>
+                            Score: {value.Score}
+                        </p>
+                        <div className="p-4 flex flex-col justify-center rounded-lg bg-blue-50 w-full my-2">
+                            <ReactMarkdown>
+                                {prepareBody(value.Body)}
+                            </ReactMarkdown>
+                        </div>
+                    </div>
+                </a>
             ))}
           </div>
         </div>
