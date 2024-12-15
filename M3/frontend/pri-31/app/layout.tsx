@@ -21,6 +21,13 @@ export default function RootLayout({
           </div>
           {children}
         </main>
+        <footer className="flex p-4 bg-orange-200">
+          <div className="flex justify-between w-full">
+            <span>Group 31, December 2024</span>
+            <span><a href="/">Home</a></span>
+            <span><a href="/about">About</a></span>
+          </div>
+        </footer>
       </body>
     </html>
   );

@@ -1,7 +1,5 @@
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
-import pedrojanu from '@/public/pedrojanu.jpg';
-import daniel from '@/public/daniel.jpg';
 
 export default function GroupMember(
     {
