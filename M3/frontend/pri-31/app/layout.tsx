@@ -1,6 +1,7 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import Logo from '@/app/ui/logo';
+import Link from 'next/link';
  
 export default function RootLayout({
   children,
@@ -24,8 +25,8 @@ export default function RootLayout({
         <footer className="flex p-4 bg-orange-200">
           <div className="flex justify-between w-full">
             <span>Group 31, December 2024</span>
-            <span><a href="/">Home</a></span>
-            <span><a href="/about">About</a></span>
+            <span><Link href="/">Home</Link></span>
+            <span><Link href="/about">About</Link></span>
           </div>
         </footer>
       </body>

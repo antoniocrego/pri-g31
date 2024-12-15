@@ -1,4 +1,3 @@
-import { lusitana } from '@/app/ui/fonts';
 import GroupMember from '@/app/ui/group-member';
 
 export default function Page() {

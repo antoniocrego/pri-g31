@@ -6,7 +6,7 @@ export async function search(term: string) {
     const port = process.env.SOLR_PORT;
     const core = process.env.SOLR_CORE;
 
-    let query = query_base;
+    const query = query_base;
     query["query"] = term;
 
     const uri = "http://" +
@@ -28,7 +28,7 @@ export async function search(term: string) {
 
     const docs = data.response.docs;
 
-    let results: { [key: number]: any } = {};
+    const results: { [key: number]: any } = {};
 
     docs.forEach((doc: any) => {
         doc.Id = parseInt(doc.Id);

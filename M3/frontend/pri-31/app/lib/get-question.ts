@@ -43,7 +43,7 @@ async function getAnswers(answer_ids: number[], accepted_answer_id: number) {
     const port = process.env.SOLR_PORT;
     const core = process.env.SOLR_CORE;
 
-    let ret: Answer[] = [];
+    const ret: Answer[] = [];
 
     for (const id of answer_ids) {
         const uri = "http://" +
@@ -60,7 +60,7 @@ async function getAnswers(answer_ids: number[], accepted_answer_id: number) {
         if (data["response"]["numFound"] == 0)
             notFound();
 
-        let a = data["response"]["docs"][0];
+        const a = data["response"]["docs"][0];
         a.accepted = (id == accepted_answer_id);
         a.key = id;     // so that nextjs doesn't complain
         ret.push(a);
