@@ -9,13 +9,13 @@ def text_to_embedding(text):
     embedding_str = "[" + ",".join(map(str, embedding)) + "]"
     return embedding_str
 
-def solr_knn_query(endpoint, collection, embedding):
+def solr_knn_query(rows, endpoint, collection, embedding):
     url = f"{endpoint}/{collection}/select"
 
     data = {
         "q": f"{{!knn f=vector topK=10}}{embedding}",
-        "fl": "Id,Title,score",
-        "rows": 10,
+        "fl": "Id,Title,Body,Score",
+        "rows": rows,
         "wt": "json"
     }
     
@@ -34,7 +34,7 @@ def display_results(results):
         return
 
     for doc in docs:
-        print(f"* {doc.get('Id')} {doc.get('Title')} [score: {doc.get('score'):.2f}]")
+        print(f"* {doc.get('Id')} {doc.get('Title')} [score: {doc.get('Score'):.2f}]")
 
 def main():
     solr_endpoint = "http://localhost:8983/solr"
@@ -44,7 +44,7 @@ def main():
     embedding = text_to_embedding(query_text)
 
     try:
-        results = solr_knn_query(solr_endpoint, collection, embedding)
+        results = solr_knn_query(10, solr_endpoint, collection, embedding)
         display_results(results)
     except requests.HTTPError as e:
         print(f"Error {e.response.status_code}: {e.response.text}")
