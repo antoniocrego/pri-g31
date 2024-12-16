@@ -14,7 +14,7 @@ def solr_knn_query(rows, endpoint, collection, embedding):
 
     data = {
         "q": f"{{!knn f=vector topK=10}}{embedding}",
-        "fl": "Id,Title,Body,Score",
+        "fl": "Id,Title,Body,score",
         "rows": rows,
         "wt": "json"
     }
@@ -34,7 +34,7 @@ def display_results(results):
         return
 
     for doc in docs:
-        print(f"* {doc.get('Id')} {doc.get('Title')} [score: {doc.get('Score'):.2f}]")
+        print(f"* {doc.get('Id')} {doc.get('Title')} [score: {doc.get('score'):.2f}]")
 
 def main():
     solr_endpoint = "http://localhost:8983/solr"
