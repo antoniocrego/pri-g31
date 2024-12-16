@@ -6,17 +6,19 @@
 
 Run ```docker compose up [-d]```.
 
+If necessary, go to ```solr/``` and run ```source populate.sh```.
+
 ### Semantic search API
 
 Navigate to ```solr/api``` and run:
 
-```python3 -m venv venv/```
+```python3 -m venv venv```
 
-```source venv/bin/activate.sh```
+```source venv/bin/activate```
 
 ```pip install -r requirements.txt```
 
-```uvicorn api:app --host 0.0.0.0 -- port 8080```
+```uvicorn api:app --host 0.0.0.0 --port 8080```
 
 ### Next.js Frontend
 
