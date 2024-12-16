@@ -3,11 +3,24 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
 import { useRouter } from 'next/navigation';
 
-export default function Search() {
+export default function Search(
+  {
+    placeholder,
+    semantic
+  } : {
+    placeholder: string
+    semantic: boolean
+  }
+) {
   const router = useRouter();
 
   function handleSearch(term: string) {
-    router.push(`/results?query=${term}`);
+    const uri = ('/results'
+      + (semantic? '_semantic' : '')
+      + '?query'
+      + '=' + term);
+    console.log(uri);
+    router.push(uri);
   }
 
   return (
@@ -15,7 +28,7 @@ export default function Search() {
       <input
         className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 peer"
         type="text"
-        placeholder="Search..."
+        placeholder={placeholder}
         onKeyDown={(e) => {
           if (e.key === "Enter" && e.currentTarget.value !== "") {
             handleSearch(e.currentTarget.value);
@@ -26,5 +39,3 @@ export default function Search() {
     </div>
   );
 }
-
-// export function Result({})

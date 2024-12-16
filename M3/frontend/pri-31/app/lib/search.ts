@@ -38,3 +38,36 @@ export async function search(term: string) {
 
     return results;
 }
+
+export async function search_semantic(term: string) {
+    term = term.toString();
+    const address = process.env.SEMANTIC_ADDR;
+    const port = process.env.SEMANTIC_PORT;
+
+    const uri = "http://" +
+        address +
+        ":" + port +
+        "/semantic-query?q=" +
+        term;
+
+    console.log(uri);
+
+    const data = await (await fetch(uri, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })).json();
+
+    const docs = data;
+
+    const results: { [key: number]: any } = {};
+
+    docs.forEach((doc: any) => {
+        doc.Id = parseInt(doc.Id);
+        results[parseInt(doc.Id)] = doc;
+    });
+
+    return results;
+}
+

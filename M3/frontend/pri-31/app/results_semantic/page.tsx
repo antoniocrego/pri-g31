@@ -1,4 +1,4 @@
-import { search } from '@/app/lib/search';
+import { search_semantic } from '@/app/lib/search';
 import Search from '@/app/ui/search';
 import { lusitana } from '@/app/ui/fonts';
 import ReactMarkdown from 'react-markdown';
@@ -19,7 +19,7 @@ export default async function Page(props: {
     const searchParams = await props.searchParams;
     const query: string = searchParams?.query || '';
 
-    const results = await search(query);
+    const results = await search_semantic(query);
     const num_results = Object.keys(results).length;
 
     return (

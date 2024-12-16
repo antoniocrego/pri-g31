@@ -16,7 +16,12 @@ export default function Page() {
         </div>
       </div>
       <div className="flex flex-col justify-center w-full">
-        <Search />
+        <div className="mb-2">
+          <Search placeholder="Search..." semantic={false}/>
+        </div>
+        <div className="mt-2">
+          <Search placeholder="Semantic search..." semantic={true}/>
+        </div>
       </div>
     </div>
   );
