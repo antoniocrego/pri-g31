@@ -1,6 +1,6 @@
 {
     "query": "My Python code is missing the last iteration",
-    "fields": "Id, Score, Title, Body",
+    "fields": "Id, Score, Title, Body, score",
     "params": {
         "defType": "edismax",
         "qf": "Title^3 Body Tags^2",
