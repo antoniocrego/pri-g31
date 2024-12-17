@@ -1,12 +1,20 @@
 # M3
 
+> CAUTION: Be sure that ```questions_with_embeddings.json``` is present under ```solr/dataset/```.
+
 ## Run
 
 ### First of all: Solr
 
-Run ```docker compose up [-d]```.
+Navigate to ```solr/```.
 
-If necessary, go to ```solr/``` and run ```source populate.sh```.
+#### First time
+
+Run ```source init.sh```, ```source populate.sh```.
+
+#### Following times
+
+Run ```source start.sh```.
 
 ### Semantic search API
 

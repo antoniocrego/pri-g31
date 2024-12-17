@@ -1,8 +1,0 @@
-services:
-  solr:
-    image: solr:9
-    ports:
-      - 8983:8983
-    restart: unless-stopped
-    volumes:
-      - ./solr/dataset:/data
