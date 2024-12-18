@@ -8,7 +8,7 @@ docker exec solr bin/solr post -c stackoverflow /data/questions_with_embeddings.
 docker exec solr bin/solr post -c stackoverflow /data/answers.json
 
 # curl -X POST -H 'Content-type:application/json' \
-# --data-binary "@dataset/questions.json" \
+# --data-binary "@solr/dataset/questions.json" \
 # http://localhost:8983/solr/stackoverflow/update?commit=true
 
 # curl -X POST -H 'Content-type:application/json' \

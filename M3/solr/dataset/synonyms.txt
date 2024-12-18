@@ -1,7 +1,11 @@
-js, javascript, ECMAScript
+js, javascript
 python, py
 cpp, c++, c plus plus
-c
+rust, rs
+go, golang
+haskell, hs
 java, jvm, jar
-ruby, ruby language, rb
-php, PHP, hypertext preprocessor
+ruby, rb
+php, hypertext preprocessor
+html, hypertext markup language
+css, cascading style sheets
