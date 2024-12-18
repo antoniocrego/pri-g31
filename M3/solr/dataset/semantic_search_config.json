@@ -1,0 +1,12 @@
+{
+    "create-requesthandler": {
+        "name": "/knn",
+        "class": "solr.SearchHandler",
+        "defaults":{
+            "rows": 10,
+            "fl": "Id,Title,Body,score",
+            "f": "vector",
+            "wt": "json"
+        }
+    }
+}

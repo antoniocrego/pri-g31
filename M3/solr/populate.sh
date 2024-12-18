@@ -7,13 +7,6 @@ curl -X POST -H 'Content-type:application/json' --data-binary '@dataset/schema.j
 docker exec solr bin/solr post -c stackoverflow /data/questions_with_embeddings.json
 docker exec solr bin/solr post -c stackoverflow /data/answers.json
 
-# curl -X POST -H 'Content-type:application/json' \
-# --data-binary "@solr/dataset/questions.json" \
-# http://localhost:8983/solr/stackoverflow/update?commit=true
-
-# curl -X POST -H 'Content-type:application/json' \
-# --data-binary "@dataset/answers.json" \
-# http://localhost:8983/solr/stackoverflow/update?commit=true
-
 curl -X POST -H 'Content-type:application/json' -d "@dataset/spell_check_config.json" "http://localhost:8983/solr/stackoverflow/config"
+curl -X POST -H 'Content-type:application/json' -d "@dataset/semantic_search_config.json" "http://localhost:8983/solr/stackoverflow/config"
 

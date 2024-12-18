@@ -10,7 +10,7 @@ def text_to_embedding(text):
     return embedding_str
 
 def solr_knn_query(rows, endpoint, collection, embedding):
-    url = f"{endpoint}/{collection}/select"
+    url = f"{endpoint}/{collection}/knn"
 
     data = {
         "q": f"{{!knn f=vector topK=10}}{embedding}",
