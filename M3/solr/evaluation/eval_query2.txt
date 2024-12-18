@@ -3,13 +3,13 @@ num_q                 	all	1
 num_ret               	all	10
 num_rel               	all	21
 num_rel_ret           	all	2
-map                   	all	0.0612
-gm_map                	all	0.0612
+map                   	all	0.0582
+gm_map                	all	0.0582
 Rprec                 	all	0.0952
 bpref                 	all	0.0952
 recip_rank            	all	1.0000
 iprec_at_recall_0.00  	all	1.0000
-iprec_at_recall_0.10  	all	0.2857
+iprec_at_recall_0.10  	all	0.2222
 iprec_at_recall_0.20  	all	0.0000
 iprec_at_recall_0.30  	all	0.0000
 iprec_at_recall_0.40  	all	0.0000
