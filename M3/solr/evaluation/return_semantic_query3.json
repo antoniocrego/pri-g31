@@ -1,0 +1,86 @@
+{
+  "response": {
+    "docs": [
+      {
+        "Id": [
+          75216248
+        ],
+        "Body": "I am learning c programming language and am figuring out format specifiers, but it seems as if double and %f are not working corectly.\nHere is my code\n```\n#include <stdio.h>\nint main(void)\n{ \n    double a = 15.1234567899876;\n    printf(\"%13.10f\", a);\n}\n```\n\nIn my textbook it's stated that in \"%13.10f\" 13 stands for total number of digits we want to be printed(including dot) and 10 is number of decimals. So i expected to get 15.1234567899 but didn't.\nAfter running it I get 15.1234567900. It's not just not enough decimals, but decimals are not printed correctly. Variable a has 8 after 7 and before 9, but printed number does not.\nCan someone please tell me where am I wrong.\nThank you. Lp\n",
+        "Title": "Why double and %f don't want to print 10 decimals?",
+        "score": 5.9544253
+      },
+      {
+        "Id": [
+          75121916
+        ],
+        "Body": "I have been trying to install PDcurses on my Windows 10 machine. The README.md says to run: `make -f Makefile` to build pdcures.dll in the 'wincon' folder. However when i ran this in Powershell it did not create any .dll, instead creating many .o files.\nThen i tried to run 'make -f Makefile.wcc' in Powershell and it returned the error 'makefile.wcc:9: *** missing separator. Stop.' I got similar errors using Makefile.bcc and Makefile.vc.\nWhat am i doing wrong here? Am i supposed to build one of the .c files?\n",
+        "Title": "no pdcures.dll created when using make -f Makefile for win 10 pdcurses",
+        "score": 5.503914
+      },
+      {
+        "Id": [
+          48665131
+        ],
+        "Body": "I trained my knn classifier over multiple images and saved the model. I am getting some new images to train. I don't want to retrain the already existing model.\n\nHow to add the newly trained model to the existing saved model ? \n\nCould someone guide if this is possible or any articles describing the same ? \n\nThank you, \n",
+        "Title": "Retrain a KNN classified model (scikit)",
+        "score": 5.3791175
+      },
+      {
+        "Id": [
+          40287236
+        ],
+        "Body": "I work with data set consists about 200k objects. Every object has 4 features. I classifies them by K nearest neighbors (KNN) with euclidean metric. Process is finished during about 20 seconds.\n\nLately I've got a reason to use custom metric. Probably it will make better results. I've implemented custom metric and KNN has become to work more than one hour. I didn't wait for finishing of it. \n\nI assumed that a reason of this issue is my metric. I replace my code by `return 1`. KNN still worked more than one hour. I assumed that a reason is algorithm Ball Tree, but KNN with it and euclidean metric works during about 20 seconds.\n\nRight now I have no idea what's wrong. I use Python 3 and sklearn 0.17.1. [Here](https://github.com/scikit-learn/scikit-learn/blob/0.17.X/sklearn/neighbors/base.py#L256) process can't be finished with custom metric. I also tried algorithm `brute` but it has same effect. Upgrade and downgrade of scikit-learn have no effect. Implementing classification by custom metric on Python 2 has no positive effect too. I implemented this metric (just return 1) on Cython, it has same effect.\n\n```\ndef custom_metric(x: np.ndarray, y: np.ndarray) -> float:\n    return 1\n\nclf = KNeighborsClassifier(n_jobs=1, metric=custom_metric)\nclf.fit(X, Y)\n```\n\n\nCan I boost classification process by KNN with custom metric?\n\nSorry if my english is not clear.\n",
+        "Title": "Why is KNN slow with custom metric?",
+        "score": 5.1281567
+      },
+      {
+        "Id": [
+          74703827
+        ],
+        "Body": "Given outputs of a neural network `outputs` and a ground-truth `label`. `outputs.shape = (N, C, H, W)` and `label.shape = (N, H ,W)`, where `N` is the batch size, `C` is the number of classes, `H` and `W` are crop sizes. Each element of `label` is in the range of `[0, ..., C-1]`. That is, `0 <= label[i,j,k] <= C-1` for all `i,j,k`. I want to compute top3 IoU of `outputs` with respect to `label`, so I need a one-hot version of its top3 output. For example\n```\nN, C, H, W = 1, 4, 2, 2\noutputs = torch.rand((N, C, H, W))\nlabel = torch.arange(C).reshape(N, H, W)\n_, index = torch.topk(outputs, k=3, dim=1)\ntop3 = torch.zeros((N, C, H, W))\n\nfor i in range(N):\n    for j in range(H):\n        for k in range(W):\n            c = label[i, j, k]\n            if c in index[i, :, j, k]:\n                top3[i, c, j, k] = 1\n\noutputs\n\ntensor([[[[0.8002, 0.6733],\n          [0.7034, 0.5039]],\n\n         [[0.8401, 0.9226],\n          [0.7963, 0.6157]],\n\n         [[0.1063, 0.0310],\n          [0.2489, 0.9920]],\n\n         [[0.8279, 0.9109],\n          [0.4737, 0.2299]]]])\n\nlabel\n\ntensor([[[0, 1],\n         [2, 3]]])\n\nindex\n\ntensor([[[[1, 1],\n          [1, 2]],\n\n         [[3, 3],\n          [0, 1]],\n\n         [[0, 0],\n          [3, 0]]]])\n\ntop3\n\ntensor([[[[1., 0.],\n          [0., 0.]],\n\n         [[0., 1.],\n          [0., 0.]],\n\n         [[0., 0.],\n          [0., 0.]],\n\n         [[0., 0.],\n          [0., 0.]]]])\n```\n\nThen I can use `top3` to compute top3 IoU. There is a [version](https://discuss.pytorch.org/t/get-topk-results-from-segmentation-one-hot-masks-but-keep-dims/119352) to compute top3 pixel-wise accuracy, but it creates a lot of false 1s and so cannot be used to compute IoU.\n```\nexpand = torch.nn.functional.one_hot(index)\ntop3 = expand.transpose(1, 4).sum(dim=4) \n\ntop3\n\ntensor([[[[0, 1],\n          [0, 0]],\n\n         [[1, 0],\n          [1, 1]],\n\n         [[1, 1],\n          [1, 1]],\n\n         [[1, 1],\n          [1, 1]]]])\n```\n\n",
+        "Title": "How to compute Topk IoU in semantic segmentation using PyTorch?",
+        "score": 4.932722
+      },
+      {
+        "Id": [
+          35737564
+        ],
+        "Body": "Suppose I have 2 record types\n\n```\ntype A = { a: string; parameters: parameter list }\ntype B = { b: string; parameters: parameter list }\n```\n\n\nwhere\n    type parameter = { name: string; value : string }\n\nHow can I write function `parameter` \n\n```\nlet parameter name value entity = \n     { entity with parameters = List.append \n                                    parameters \n                                    [ { name = name; value = value; } ]\n     }\n```\n\n\nSuch as\n\n```\nlet a =  { a = \"a\", parameters = [] } |> parameter \"p\", \"v\" // a is a record of type A\nlet b =  { b = \"b\", parameters = [] } |> parameter \"p\", \"v\" // b is record of type B\n```\n\n",
+        "Title": "F# polymorphic function",
+        "score": 4.5671453
+      },
+      {
+        "Id": [
+          41813372
+        ],
+        "Body": "I feel like my run time is extremely slow for my data set, this is the code:\n\n```\nlibrary(caret)\n    library(data.table)\n    knnImputeValues <- preProcess(mainData[trainingRows, imputeColumns], method = c(\"zv\", \"knnImpute\"))\n    knnTransformed <- predict(knnImputeValues, mainData[ 1:1000, imputeColumns])\n```\n\n\nthe PreProcess into knnImputeValues run's fairly quickly, however the predict function takes a tremendous amount of time.  When I calculated it on a subset of the data this was the result: \n\n```\ntesttime <- system.time(knnTransformed <- predict(knnImputeValues, mainData[ 1:15000, imputeColumns\ntesttime\n\nuser     969.78\nsystem   38.70 \nelapsed  1010.72\n```\n\n\nAdditionally, it should be noted that caret preprocess uses \"RANN\".\n\nNow my full dataset is:\n\n```\nstr(mainData[ , imputeColumns])\n'data.frame':   1809032 obs. of  16 variables:\n $ V1: int  3 5 5 4 4 4 3 4 3 3 ...\n $ V2: Factor w/ 3 levels \"1000000\",\"1500000\",..: 1 1 3 1 1 1 1 3 1 1 ...\n $ V3: Factor w/ 2 levels \"0\",\"1\": 2 2 2 2 2 2 2 2 2 2 ...\n $ V4: int  2 5 5 12 4 5 11 8 7 8 ...\n $ V5: int  2 0 0 2 0 0 1 3 2 8 ...\n $ V6: int  648 489 489 472 472 472 497 642 696 696 ...\n $ V7: Factor w/ 4 levels \"\",\"N\",\"U\",\"Y\": 4 1 1 1 1 1 1 1 1 1 ...\n $ V8: int  0 0 0 0 0 0 0 1 1 1 ...\n $ V9: num  0 0 0 0 0 ...\n $ V10: Factor w/ 56 levels \"1\",\"2\",\"3\",\"4\",..: 45 19 19 19 19 19 19 46 46 46 ...\n $ V11: Factor w/ 2 levels \"0\",\"1\": 2 2 2 2 2 2 2 2 2 2 ...\n $ V12: num  2 5 5 12 4 5 11 8 7 8 ...\n $ V13: num  2 0 0 2 0 0 1 3 2 8 ...\n $ V14: Factor w/ 4 levels \"1\",\"2\",\"3\",\"4\": 2 2 2 2 2 2 2 2 3 3 ...\n $ V15: Factor w/ 2 levels \"0\",\"1\": 1 1 1 1 1 1 1 2 2 2 ...\n $ V16: num  657 756 756 756 756 ...\n```\n\n\nSo is there something I'm doing wrong, or is this typical for how long it will take to run this? If you back of the envelop extrapolate (which I know isn't entire accurate) you'd get what 33 days?\n\nAlso it looks like system time is very low and user time is very high, is that normal?\n\nMy computer is a laptop, with a Intel(R) Core(TM) i5-6300U CPU @ 2.40Ghz processor.\n\nAdditionally would this improve the runtime of the predict function?\n\n```\ncl <- makeCluster(4)\nregisterDoParallel()\n```\n\n\nI tried it, and it didn't seem to make a difference other than all the processors looked more active in my task manager.\n\n\n\nThank you for any help provided. And the answer might very well be \"that's how long it takes don't bother\" I just want to rule out any possible mistakes.  \n",
+        "Title": "How can you improve computation time when predicting KNN Imputation?",
+        "score": 4.498526
+      },
+      {
+        "Id": [
+          70463008
+        ],
+        "Body": "```\nscore_array = 0\nfor each in range(1,25):\n    knn_loop = KNeighborsClassifier(n_neighbors = each)\n#set K neighbor as 3\n    knn_loop.fit(X_train,y_train)\n    result = knn_loop.score(X_test, y_test)\n    if result > score_array:\n        score_array = result\n    print(score_array)\n```\n\nI am inputting the code above, and I am getting the following error:\n```\nTypeError: '>' not supported between instances of 'numpy.ndarray' and 'str'\n```\n\nWhat can I do to be able to store the maximum number of neighbors?\n",
+        "Title": "How to get the optimal number of neighboors for KNN",
+        "score": 4.498526
+      },
+      {
+        "Id": [
+          74994748
+        ],
+        "Body": "I get a `vector<vector<Point>>` data by OpenCV. For some reasons (for example offset/scaling), I need to convert the data `Point` to `Point2f`. How can I do that?\nFor example:\n```\nstd::vector<std::vector<Point> > contours;\nstd::vector<std::Vec4i> hierarchy;\ncv::findContours(edges, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE);\n\n\nstd::vector<std::vector<Point2f> > new_contour;\n```\n\nI need `new_contour` which is `vector` of `vector` of `Point2f`. Is there a simple way that convert it to float type? Then I can do some modification (for example offset/scaling) by replacing each `Point2f` data.\nI try it using `push_back`. But still get error when building...\n",
+        "Title": "C++ OpenCV: Convert vector<vector<Point>> to vector<vector<Point2f>>",
+        "score": 4.4942126
+      },
+      {
+        "Id": [
+          43409795
+        ],
+        "Body": "I am an A-level student writing his coursework for computing. A small part of my codes takes in inputs are turns them into a time. 8 o'clock in the morning is shown like this: 08 ,  Because that's how SQLite likes it. However when converting it into a date I get the error message in the title:\n\n```\n_tkinter.TclError: expected floating-point number but got \"08\" (looks like invalid octal number)\n```\n\n\nThis also happens with 09 ,  but not with 06 or 07.\n\nCode: \n\n```\nvariable_start = IntVar(root)\nvariable_start.set(\"Select Start Time\")\n\noption_add_start =  ttk.Combobox(window1, textvariable = variable_start,width = 20, state = 'readonly')\noption_add_start['values'] = (\"06\", \"07\", \"08\", \"09\", \"10\", \"11\", \"12\", \"13\", \"14\", \"15\",\n\"16\", \"17\", \"18\",\"19\", \"20\")\n\nhour1 = variable_start.get()\nmin1 = variable_start_min.get()\nstarttimehour = str(datetime.time(hour1,min1,second))\n```\n\n\nIs it something to do with my datatype? I'm not to sure how to fix it.\n",
+        "Title": "_tkinter.TclError: expected floating-point number but got \"08\" (looks like invalid octal number)",
+        "score": 4.393314
+      }
+    ]
+  }
+}

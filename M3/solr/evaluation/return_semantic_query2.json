@@ -1,0 +1,86 @@
+{
+  "response": {
+    "docs": [
+      {
+        "Id": [
+          75096891
+        ],
+        "Body": "I have Three list\n- List 1 `[[[160, 600], [125, 600],[120,600]], [[1003, 70], [1000, 60]], [[1003,90], [970,90],[728, 90]],[[300,250],[300,600],[300,292],[300,600]],[300, 100], [300, 250], [300, 250], [300, 250], [[728, 90], [1003, 90]], [1, 1]]`- List 2 `[125, 1000px, 1003, 300px, 300px, 300, 300, 300, 728]`- List 3 `[600, 50px, 80, 600px, 100px, 250, 250, 250, 90]`\nMy Requirement is, I have to check the Combination of List2 & List3 exists in List 1 or not.\n\n[125, 600]    [[160, 600], [125, 600],[120,600]]\nI am looking for the best possible approach here.\n",
+        "Title": "Getting this format in output [[20, 33], [20, 33], [20, 33], [10, 22], [10, 22], [10, 22]], but i want my output such as [20, 10] [33, 22]",
+        "score": 8.702408
+      },
+      {
+        "Id": [
+          75216248
+        ],
+        "Body": "I am learning c programming language and am figuring out format specifiers, but it seems as if double and %f are not working corectly.\nHere is my code\n```\n#include <stdio.h>\nint main(void)\n{ \n    double a = 15.1234567899876;\n    printf(\"%13.10f\", a);\n}\n```\n\nIn my textbook it's stated that in \"%13.10f\" 13 stands for total number of digits we want to be printed(including dot) and 10 is number of decimals. So i expected to get 15.1234567899 but didn't.\nAfter running it I get 15.1234567900. It's not just not enough decimals, but decimals are not printed correctly. Variable a has 8 after 7 and before 9, but printed number does not.\nCan someone please tell me where am I wrong.\nThank you. Lp\n",
+        "Title": "Why double and %f don't want to print 10 decimals?",
+        "score": 5.9544253
+      },
+      {
+        "Id": [
+          75121916
+        ],
+        "Body": "I have been trying to install PDcurses on my Windows 10 machine. The README.md says to run: `make -f Makefile` to build pdcures.dll in the 'wincon' folder. However when i ran this in Powershell it did not create any .dll, instead creating many .o files.\nThen i tried to run 'make -f Makefile.wcc' in Powershell and it returned the error 'makefile.wcc:9: *** missing separator. Stop.' I got similar errors using Makefile.bcc and Makefile.vc.\nWhat am i doing wrong here? Am i supposed to build one of the .c files?\n",
+        "Title": "no pdcures.dll created when using make -f Makefile for win 10 pdcurses",
+        "score": 5.503914
+      },
+      {
+        "Id": [
+          48665131
+        ],
+        "Body": "I trained my knn classifier over multiple images and saved the model. I am getting some new images to train. I don't want to retrain the already existing model.\n\nHow to add the newly trained model to the existing saved model ? \n\nCould someone guide if this is possible or any articles describing the same ? \n\nThank you, \n",
+        "Title": "Retrain a KNN classified model (scikit)",
+        "score": 5.3791175
+      },
+      {
+        "Id": [
+          40287236
+        ],
+        "Body": "I work with data set consists about 200k objects. Every object has 4 features. I classifies them by K nearest neighbors (KNN) with euclidean metric. Process is finished during about 20 seconds.\n\nLately I've got a reason to use custom metric. Probably it will make better results. I've implemented custom metric and KNN has become to work more than one hour. I didn't wait for finishing of it. \n\nI assumed that a reason of this issue is my metric. I replace my code by `return 1`. KNN still worked more than one hour. I assumed that a reason is algorithm Ball Tree, but KNN with it and euclidean metric works during about 20 seconds.\n\nRight now I have no idea what's wrong. I use Python 3 and sklearn 0.17.1. [Here](https://github.com/scikit-learn/scikit-learn/blob/0.17.X/sklearn/neighbors/base.py#L256) process can't be finished with custom metric. I also tried algorithm `brute` but it has same effect. Upgrade and downgrade of scikit-learn have no effect. Implementing classification by custom metric on Python 2 has no positive effect too. I implemented this metric (just return 1) on Cython, it has same effect.\n\n```\ndef custom_metric(x: np.ndarray, y: np.ndarray) -> float:\n    return 1\n\nclf = KNeighborsClassifier(n_jobs=1, metric=custom_metric)\nclf.fit(X, Y)\n```\n\n\nCan I boost classification process by KNN with custom metric?\n\nSorry if my english is not clear.\n",
+        "Title": "Why is KNN slow with custom metric?",
+        "score": 5.1281567
+      },
+      {
+        "Id": [
+          41559271
+        ],
+        "Body": "This is my start script for a React application.\n\n```\n\"scripts\": {\n    \"prestart\": \"babel-node tools/startMessage.js\",\n    \"start\": \"npm-run-all --parallel test:watch open:src lint:watch\",\n    \"open:src\": \"babel-node tools/srcServer.js\",\n    \"lint\": \"node_modules/.bin/esw webpack.config.* src tools\",\n    \"lint:watch\": \"npm run lint -- --watch\",\n    \"test\": \"mocha --reporter progress tools/testSetup.js \\\"src/**/*.test.js\\\"\",\n    \"test:watch\": \"npm run test -- --watch\",\n    \"clean-dist\": \"npm run remove-dist && mkdir dist\",\n    \"remove-dist\": \"node_modules/.bin/rimraf ./dist\",\n    \"build:html\": \"babel-node tools/buildHtml.js\",\n    \"prebuild\": \"npm-run-all clean-dist test lint build:html\",\n    \"build\": \"babel-node tools/build.js\",\n    \"postbuild\": \"babel-node tools/distServer.js\"\n  },\n```\n\n\nWhen I run npm start, I get a long list of error.\n\n```\nnpm ERR! System Linux 3.10.0-327.36.3.el7.20161025.20.x86_64\nnpm ERR! command \"/usr/local/bin/node\" \"/usr/local/bin/npm\" \"run\" \"lint\" \"--\" \"--watch\"\nnpm ERR! cwd /home/user/workspace/shareback-viewer\nnpm ERR! node -v v0.10.30\nnpm ERR! npm -v 1.4.21\nnpm ERR! path /home/user/workspace/shareback-viewer/node_modules/lint/package.json\nnpm ERR! code ENOENT\nnpm ERR! errno 34......\n```\n\n\nSo clearly the npm script is failing because it's trying to look for the wrong path.\nnpm ERR! path /home/user/workspace/shareback-viewer/node_modules/lint/package.json\n\nHow can I fix this?\n",
+        "Title": "npm ERR! code ENOENT, npm ERR! errno 34",
+        "score": 5.081565
+      },
+      {
+        "Id": [
+          74703827
+        ],
+        "Body": "Given outputs of a neural network `outputs` and a ground-truth `label`. `outputs.shape = (N, C, H, W)` and `label.shape = (N, H ,W)`, where `N` is the batch size, `C` is the number of classes, `H` and `W` are crop sizes. Each element of `label` is in the range of `[0, ..., C-1]`. That is, `0 <= label[i,j,k] <= C-1` for all `i,j,k`. I want to compute top3 IoU of `outputs` with respect to `label`, so I need a one-hot version of its top3 output. For example\n```\nN, C, H, W = 1, 4, 2, 2\noutputs = torch.rand((N, C, H, W))\nlabel = torch.arange(C).reshape(N, H, W)\n_, index = torch.topk(outputs, k=3, dim=1)\ntop3 = torch.zeros((N, C, H, W))\n\nfor i in range(N):\n    for j in range(H):\n        for k in range(W):\n            c = label[i, j, k]\n            if c in index[i, :, j, k]:\n                top3[i, c, j, k] = 1\n\noutputs\n\ntensor([[[[0.8002, 0.6733],\n          [0.7034, 0.5039]],\n\n         [[0.8401, 0.9226],\n          [0.7963, 0.6157]],\n\n         [[0.1063, 0.0310],\n          [0.2489, 0.9920]],\n\n         [[0.8279, 0.9109],\n          [0.4737, 0.2299]]]])\n\nlabel\n\ntensor([[[0, 1],\n         [2, 3]]])\n\nindex\n\ntensor([[[[1, 1],\n          [1, 2]],\n\n         [[3, 3],\n          [0, 1]],\n\n         [[0, 0],\n          [3, 0]]]])\n\ntop3\n\ntensor([[[[1., 0.],\n          [0., 0.]],\n\n         [[0., 1.],\n          [0., 0.]],\n\n         [[0., 0.],\n          [0., 0.]],\n\n         [[0., 0.],\n          [0., 0.]]]])\n```\n\nThen I can use `top3` to compute top3 IoU. There is a [version](https://discuss.pytorch.org/t/get-topk-results-from-segmentation-one-hot-masks-but-keep-dims/119352) to compute top3 pixel-wise accuracy, but it creates a lot of false 1s and so cannot be used to compute IoU.\n```\nexpand = torch.nn.functional.one_hot(index)\ntop3 = expand.transpose(1, 4).sum(dim=4) \n\ntop3\n\ntensor([[[[0, 1],\n          [0, 0]],\n\n         [[1, 0],\n          [1, 1]],\n\n         [[1, 1],\n          [1, 1]],\n\n         [[1, 1],\n          [1, 1]]]])\n```\n\n",
+        "Title": "How to compute Topk IoU in semantic segmentation using PyTorch?",
+        "score": 4.932722
+      },
+      {
+        "Id": [
+          75236047
+        ],
+        "Body": "I want to use intent method for get uri from another activity, but  intent.getParcelableExtra is deprecated.if I use\n```\nif (SDK_INT >= 33) {\n    \n        intent.getParcelableExtra(\"EXTRA_URI\", Uri::class.java).let { ueray ->\n                timeLineView.post({\n                    if (ueray != null) {\n                        setBitmap(ueray)\n                        videoView.setVideoURI(ueray)\n    \n                    }\n                })\n            }\n        }\n        else {\n            @Suppress(\"DEPRECATION\")\n       intent.getParcelableExtra<Uri>(\"EXTRA_URI\").let { ueray ->\n                timeLineView.post({\n                    if (ueray != null) {\n                        setBitmap(ueray)\n                        videoView.setVideoURI(ueray)\n    \n                    }\n                })\n    \n            }\n        }\n```\n\nthis code can google play reject my app? because when in remove (SDK_INT >= 33)  statement it shows\nCall requires API level 33 (current min is 21): android.content.Intent#getParcelableExtra. Thanks in advance\n",
+        "Title": "Android getParcelableExtra deprecated in api 33",
+        "score": 4.8409705
+      },
+      {
+        "Id": [
+          75038888
+        ],
+        "Title": "FloatingActionButton over Fragment on SDK 33",
+        "Body": "After read various stackoverflow's questions about floatingactionbutton, like here [Android changing Floating Action Button color](https://stackoverflow.com/questions/30969455/android-changing-floating-action-button-color) which is one of most complete questions about it, and tried various suggestions, I am using fab over a Fragment in an app with `compileSdkVersion 33` , `targetSdkVersion 33` , `implementation 'androidx.appcompat:appcompat:1.5.1'` , plus I settled last version of Material component `implementation 'com.google.android.material:material:1.7.0'` , and in fragment xml I settled as :\n```\n<com.google.android.material.floatingactionbutton.FloatingActionButton\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    android:id=\"@+id/fab\"\n    android:layout_width=\"wrap_content\"\n    android:layout_height=\"wrap_content\"\n    android:layout_gravity=\"bottom|end\"\n    android:layout_margin=\"16dp\"\n    app:srcCompat=\"@android:drawable/ic_popup_sync\"\n    app:tint=\"@color/white\"\n    app:backgroundTint=\"@color/fab_enabled\"/>\n```\n\nand in code I tried various ways, as you can see on commented code lines, but seems fab doesn't change background color as disabled even the state corresponds as disabled :\n```\nFloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);\nfab.setOnClickListener(new View.OnClickListener() {\n    @Override\n    public void onClick(View view) {\n        fab.setEnabled(false);\n        //fab.getBackground().set(getContext().getColor(R.color.fab_disabled));\n        //fab.setBackgroundTintList(ColorStateList.valueOf(getContext().getColor(R.color.fab_disabled)));\n        //fab.setBackgroundColor( getContext().getColor(R.color.fab_disabled) );\n        fab.getBackground().mutate().setTint(getContext().getColor(R.color.fab_disabled));\n```\n\ndoes maybe that depend from the material version? Or is maybe related to some refresh needed to show background color changed? Or even because I used a standard java button ( `@android:drawable/ic_popup_sync` ), not a custom one? .... I also tried using a selector instead of color in backgroundTint too to make it changes automatically depending from the current state, but it didn't worked...\n\nI tried to incorporate the listview and the floating action button inside a RelativeLayout to try to see listview cleared as like as I call adapter.clear() and adapter.notifyDataSetChanged() :\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n\n    android:id=\"@+id/fr_myfragment\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".MyFragment\">\n\n        <RelativeLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"match_parent\">\n\n                <!-- TODO: Update blank fragment layout -->\n                <ListView\n                    android:id=\"@+id/myfragment_list\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:layout_margin=\"5dp\" />\n\n                <com.google.android.material.floatingactionbutton.FloatingActionButton\n                    android:id=\"@+id/fab\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_alignParentEnd=\"true\"\n                    android:layout_alignParentBottom=\"true\"\n                    android:layout_gravity=\"bottom|end\"\n                    android:layout_margin=\"16dp\"\n                    android:backgroundTint=\"@color/fab_colors\"\n                    android:src=\"@android:drawable/ic_popup_sync\" />\n\n        </RelativeLayout>\n\n</FrameLayout>\n```\n\nbut once I click fab button the listview won't clear before to do new search of items to add in listview, neither hide the fab button itself...\nI tried also to change setOnClickListener with setOnTouchListener for fab button to see if fab's behavior could change but doesn't work...\nAnd I'm really stuck on it..... any direction would be appreciate....\nThanks!\n",
+        "score": 4.8409705
+      },
+      {
+        "Id": [
+          74981346
+        ],
+        "Body": "```\nLaunching lib\\main.dart on SM M215F in debug mode...\nC:\\DART PROJECT\\pdf scanner\\noturk_docs\\android\\app\\src\\main\\java\\io\\flutter\\plugins\\GeneratedPluginRegistrant.java:34: error: cannot find symbol\n      flutterEngine.getPlugins().add(new io.flutter.plugins.imagepicker.ImagePickerPlugin());\n                                                                       ^\n  symbol:   class ImagePickerPlugin\n  location: package io.flutter.plugins.imagepicker\n1 error\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':app:compileDebugJavaWithJavac'.\n> Compilation failed; see the compiler error output for details.\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n\n* Get more help at https://help.gradle.org\n\nBUILD FAILED in 34s\nException: Gradle task assembleDebug failed with exit code 1\nExited (sigterm)\n```\n\nthese are the error i got when i tried to run without debugging.i tried many options but none of it is working\n",
+        "Title": "java:34: error: cannot find symbol in flutter GeneratedPluginRegistrant.java file",
+        "score": 4.6656246
+      }
+    ]
+  }
+}
