@@ -2,84 +2,64 @@
   "response": {
     "docs": [
       {
-        "Id": [
-          75096891
-        ],
-        "Body": "I have Three list\n- List 1 `[[[160, 600], [125, 600],[120,600]], [[1003, 70], [1000, 60]], [[1003,90], [970,90],[728, 90]],[[300,250],[300,600],[300,292],[300,600]],[300, 100], [300, 250], [300, 250], [300, 250], [[728, 90], [1003, 90]], [1, 1]]`- List 2 `[125, 1000px, 1003, 300px, 300px, 300, 300, 300, 728]`- List 3 `[600, 50px, 80, 600px, 100px, 250, 250, 250, 90]`\nMy Requirement is, I have to check the Combination of List2 & List3 exists in List 1 or not.\n\n[125, 600]    [[160, 600], [125, 600],[120,600]]\nI am looking for the best possible approach here.\n",
-        "Title": "Getting this format in output [[20, 33], [20, 33], [20, 33], [10, 22], [10, 22], [10, 22]], but i want my output such as [20, 10] [33, 22]",
-        "score": 8.702408
+        "Id": [75012543],
+        "Body": "For instance,\n```\nfloat get_at_index(ring_buffer_t *buffer, ring_buffer_size_t index) {\n    if (index \u003E= ring_buffer_num_items(buffer)) { /* No items at index */\n        return 0;\n    }\n    \n    /* Add index to pointer */\n    ring_buffer_size_t data_index = ((buffer-\u003Etail_index + index) & RING_BUFFER_MASK);\n    return buffer-\u003Ebuffer[data_index];\n}\n```\n\n\n## Does it make a difference to do return (float)buffer-\u003Ebuffer[data_index]?\n\n\nWhere `buffer-\u003Ebuffer[data_index]` is a float array.\n",
+        "Title": "C Language Convention - Non-explicit Conversion vs Explicit Conversion",
+        "score": 0.84052515
       },
       {
-        "Id": [
-          75216248
-        ],
-        "Body": "I am learning c programming language and am figuring out format specifiers, but it seems as if double and %f are not working corectly.\nHere is my code\n```\n#include <stdio.h>\nint main(void)\n{ \n    double a = 15.1234567899876;\n    printf(\"%13.10f\", a);\n}\n```\n\nIn my textbook it's stated that in \"%13.10f\" 13 stands for total number of digits we want to be printed(including dot) and 10 is number of decimals. So i expected to get 15.1234567899 but didn't.\nAfter running it I get 15.1234567900. It's not just not enough decimals, but decimals are not printed correctly. Variable a has 8 after 7 and before 9, but printed number does not.\nCan someone please tell me where am I wrong.\nThank you. Lp\n",
-        "Title": "Why double and %f don't want to print 10 decimals?",
-        "score": 5.9544253
+        "Id": [41394063],
+        "Body": "```\nFILE * fPointer;\nfloat amount = 3.1415;\nfPointer =fopen(\"vending.txt\",\"w\");\nfprintf(fPointer, amount);\nprintf(\"The file has been created for the first time and we added the value %f\", amount);\nfclose(fPointer);\n```\n\nI am trying to save a float number to a text file but when I try to run this code it triggers a compiling errors because the function `fprintf` expects the second parameter to be an array of characters so how can I convert my float to a string so I can pass it, I have a  background where something like `.toString()` is possible so is there any thing like that in  to directly cast a float to a string?\n",
+        "Title": "How to simply convert a float to a string in c?",
+        "score": 0.8377985
       },
       {
-        "Id": [
-          75121916
-        ],
-        "Body": "I have been trying to install PDcurses on my Windows 10 machine. The README.md says to run: `make -f Makefile` to build pdcures.dll in the 'wincon' folder. However when i ran this in Powershell it did not create any .dll, instead creating many .o files.\nThen i tried to run 'make -f Makefile.wcc' in Powershell and it returned the error 'makefile.wcc:9: *** missing separator. Stop.' I got similar errors using Makefile.bcc and Makefile.vc.\nWhat am i doing wrong here? Am i supposed to build one of the .c files?\n",
-        "Title": "no pdcures.dll created when using make -f Makefile for win 10 pdcurses",
-        "score": 5.503914
+        "Id": [74738998],
+        "Body": "I am learning C, and integer promotion and the term  is new to me.\nI have read in the C Standard (C17) about the C type conversions and the integer promotion, but I don't know how to identify an integer promotion, and I don't know anything about demotion.\nFor example, if I have these lines of code:\n```\n...\nunsigned char x;\nint y;\nlong int z;\nint aux; //Auxiliary variable\n\nx = 'c';\ny = 1;\nz = 2;\n\naux = x;\naux = y;\naux = z;\n\naux = x + y; // ZX\naux = y + z;\n...\n```\n\nWhere do I have integer promotion?  Because from what I know, in the line of code commented with `ZX`, I have integer promotion, but only in that line, but I'm not sure; can you clarify it for me?\nAnd can you give me examples of when  exists? Because the C Standard does not clarify.\n",
+        "Title": "How can I identify an integer promotion and a demotion in C?",
+        "score": 0.8313206
       },
       {
-        "Id": [
-          48665131
-        ],
-        "Body": "I trained my knn classifier over multiple images and saved the model. I am getting some new images to train. I don't want to retrain the already existing model.\n\nHow to add the newly trained model to the existing saved model ? \n\nCould someone guide if this is possible or any articles describing the same ? \n\nThank you, \n",
-        "Title": "Retrain a KNN classified model (scikit)",
-        "score": 5.3791175
+        "Id": [18270974],
+        "Body": "I want to convert a float number for example 2.45 to the 4 byte char array. \nso the 2.45 should look like this  `'@' 'FS' 'Ì' 'Í'` which is binary the ieee representation of `2.45 = 01000000 00011100 11001100 11001101`?\n\nI've solved the problem but it has a bad complexity. do you have any good ideas?\n\nThanks for the good answers.\n\ncan you please tell me the way back from the char array to the float number ? \n",
+        "Title": "How to convert a float to a 4 byte char in C?",
+        "score": 0.83010876
       },
       {
-        "Id": [
-          40287236
-        ],
-        "Body": "I work with data set consists about 200k objects. Every object has 4 features. I classifies them by K nearest neighbors (KNN) with euclidean metric. Process is finished during about 20 seconds.\n\nLately I've got a reason to use custom metric. Probably it will make better results. I've implemented custom metric and KNN has become to work more than one hour. I didn't wait for finishing of it. \n\nI assumed that a reason of this issue is my metric. I replace my code by `return 1`. KNN still worked more than one hour. I assumed that a reason is algorithm Ball Tree, but KNN with it and euclidean metric works during about 20 seconds.\n\nRight now I have no idea what's wrong. I use Python 3 and sklearn 0.17.1. [Here](https://github.com/scikit-learn/scikit-learn/blob/0.17.X/sklearn/neighbors/base.py#L256) process can't be finished with custom metric. I also tried algorithm `brute` but it has same effect. Upgrade and downgrade of scikit-learn have no effect. Implementing classification by custom metric on Python 2 has no positive effect too. I implemented this metric (just return 1) on Cython, it has same effect.\n\n```\ndef custom_metric(x: np.ndarray, y: np.ndarray) -> float:\n    return 1\n\nclf = KNeighborsClassifier(n_jobs=1, metric=custom_metric)\nclf.fit(X, Y)\n```\n\n\nCan I boost classification process by KNN with custom metric?\n\nSorry if my english is not clear.\n",
-        "Title": "Why is KNN slow with custom metric?",
-        "score": 5.1281567
+        "Id": [74978857],
+        "Body": "Write a C program to print hollow number pattern series using for loop\nInput:\n```\n5\n```\n\nOUTPUT:\n```\n123456\n2    5\n3    4\n4    3\n5    2\n654321\n```\n\n\n```\n#include \u003Cstdio.h\u003E\nint main() {\n  int i, j, m, n, a;\n  scanf(\"%d\", &a);\n  for (i = 1; i \u003C= a + 1; a++) {\n    for (j = 1; j \u003C= a + 1; j++) {\n      for (m = 1; m \u003C= a + 1; m++) {\n        for (n = 1; n \u003C= a + 1; n++) {\n          printf(\"%d\", n);\n        }\n        printf(\" \");\n      }\n    }\n    printf(\"\\n\");\n    printf(\"\\n\");\n  }\n}\n```\n\n",
+        "Title": "c program about hollow number pattern",
+        "score": 0.80898285
       },
       {
-        "Id": [
-          41559271
-        ],
-        "Body": "This is my start script for a React application.\n\n```\n\"scripts\": {\n    \"prestart\": \"babel-node tools/startMessage.js\",\n    \"start\": \"npm-run-all --parallel test:watch open:src lint:watch\",\n    \"open:src\": \"babel-node tools/srcServer.js\",\n    \"lint\": \"node_modules/.bin/esw webpack.config.* src tools\",\n    \"lint:watch\": \"npm run lint -- --watch\",\n    \"test\": \"mocha --reporter progress tools/testSetup.js \\\"src/**/*.test.js\\\"\",\n    \"test:watch\": \"npm run test -- --watch\",\n    \"clean-dist\": \"npm run remove-dist && mkdir dist\",\n    \"remove-dist\": \"node_modules/.bin/rimraf ./dist\",\n    \"build:html\": \"babel-node tools/buildHtml.js\",\n    \"prebuild\": \"npm-run-all clean-dist test lint build:html\",\n    \"build\": \"babel-node tools/build.js\",\n    \"postbuild\": \"babel-node tools/distServer.js\"\n  },\n```\n\n\nWhen I run npm start, I get a long list of error.\n\n```\nnpm ERR! System Linux 3.10.0-327.36.3.el7.20161025.20.x86_64\nnpm ERR! command \"/usr/local/bin/node\" \"/usr/local/bin/npm\" \"run\" \"lint\" \"--\" \"--watch\"\nnpm ERR! cwd /home/user/workspace/shareback-viewer\nnpm ERR! node -v v0.10.30\nnpm ERR! npm -v 1.4.21\nnpm ERR! path /home/user/workspace/shareback-viewer/node_modules/lint/package.json\nnpm ERR! code ENOENT\nnpm ERR! errno 34......\n```\n\n\nSo clearly the npm script is failing because it's trying to look for the wrong path.\nnpm ERR! path /home/user/workspace/shareback-viewer/node_modules/lint/package.json\n\nHow can I fix this?\n",
-        "Title": "npm ERR! code ENOENT, npm ERR! errno 34",
-        "score": 5.081565
+        "Id": [75208685],
+        "Body": "I wanted to make a little experiment with scanf().\nI wanted to read a small (\u003C=255) integer from the user and store it in a char type.\nI did:\n```\nchar ch;\nscanf(\"%d\",&ch);\n```\n\nIt works, but I want to satisfy the compiler and not to get this warning:\n```\nwarning: format specifies type 'int *'\nbut the argument has type 'char *' [-Wformat]\nscanf(\"%d\",&ch);\n```\n\nAny idea?\n",
+        "Title": "How to read an integer value in char type?",
+        "score": 0.80741775
       },
       {
-        "Id": [
-          74703827
-        ],
-        "Body": "Given outputs of a neural network `outputs` and a ground-truth `label`. `outputs.shape = (N, C, H, W)` and `label.shape = (N, H ,W)`, where `N` is the batch size, `C` is the number of classes, `H` and `W` are crop sizes. Each element of `label` is in the range of `[0, ..., C-1]`. That is, `0 <= label[i,j,k] <= C-1` for all `i,j,k`. I want to compute top3 IoU of `outputs` with respect to `label`, so I need a one-hot version of its top3 output. For example\n```\nN, C, H, W = 1, 4, 2, 2\noutputs = torch.rand((N, C, H, W))\nlabel = torch.arange(C).reshape(N, H, W)\n_, index = torch.topk(outputs, k=3, dim=1)\ntop3 = torch.zeros((N, C, H, W))\n\nfor i in range(N):\n    for j in range(H):\n        for k in range(W):\n            c = label[i, j, k]\n            if c in index[i, :, j, k]:\n                top3[i, c, j, k] = 1\n\noutputs\n\ntensor([[[[0.8002, 0.6733],\n          [0.7034, 0.5039]],\n\n         [[0.8401, 0.9226],\n          [0.7963, 0.6157]],\n\n         [[0.1063, 0.0310],\n          [0.2489, 0.9920]],\n\n         [[0.8279, 0.9109],\n          [0.4737, 0.2299]]]])\n\nlabel\n\ntensor([[[0, 1],\n         [2, 3]]])\n\nindex\n\ntensor([[[[1, 1],\n          [1, 2]],\n\n         [[3, 3],\n          [0, 1]],\n\n         [[0, 0],\n          [3, 0]]]])\n\ntop3\n\ntensor([[[[1., 0.],\n          [0., 0.]],\n\n         [[0., 1.],\n          [0., 0.]],\n\n         [[0., 0.],\n          [0., 0.]],\n\n         [[0., 0.],\n          [0., 0.]]]])\n```\n\nThen I can use `top3` to compute top3 IoU. There is a [version](https://discuss.pytorch.org/t/get-topk-results-from-segmentation-one-hot-masks-but-keep-dims/119352) to compute top3 pixel-wise accuracy, but it creates a lot of false 1s and so cannot be used to compute IoU.\n```\nexpand = torch.nn.functional.one_hot(index)\ntop3 = expand.transpose(1, 4).sum(dim=4) \n\ntop3\n\ntensor([[[[0, 1],\n          [0, 0]],\n\n         [[1, 0],\n          [1, 1]],\n\n         [[1, 1],\n          [1, 1]],\n\n         [[1, 1],\n          [1, 1]]]])\n```\n\n",
-        "Title": "How to compute Topk IoU in semantic segmentation using PyTorch?",
-        "score": 4.932722
+        "Id": [49213089],
+        "Body": "What's the difference between the following code snippets:\n\n1. double a = 10.154430;\nint b = a;\nprintf(\"%d\", b); //prints 10 (WHY?)\n2. double a = 10.154430;\nprintf(\"%d\", a);  //prints garbage value as expected`\n\n\nNow, in both cases, I'm not doing explicit type conversion but case I work correctly..why?(int is storing double value, which shouldn't work implicitly)\n",
+        "Title": "Explicit Type Casting in C",
+        "score": 0.8064881
       },
       {
-        "Id": [
-          75236047
-        ],
-        "Body": "I want to use intent method for get uri from another activity, but  intent.getParcelableExtra is deprecated.if I use\n```\nif (SDK_INT >= 33) {\n    \n        intent.getParcelableExtra(\"EXTRA_URI\", Uri::class.java).let { ueray ->\n                timeLineView.post({\n                    if (ueray != null) {\n                        setBitmap(ueray)\n                        videoView.setVideoURI(ueray)\n    \n                    }\n                })\n            }\n        }\n        else {\n            @Suppress(\"DEPRECATION\")\n       intent.getParcelableExtra<Uri>(\"EXTRA_URI\").let { ueray ->\n                timeLineView.post({\n                    if (ueray != null) {\n                        setBitmap(ueray)\n                        videoView.setVideoURI(ueray)\n    \n                    }\n                })\n    \n            }\n        }\n```\n\nthis code can google play reject my app? because when in remove (SDK_INT >= 33)  statement it shows\nCall requires API level 33 (current min is 21): android.content.Intent#getParcelableExtra. Thanks in advance\n",
-        "Title": "Android getParcelableExtra deprecated in api 33",
-        "score": 4.8409705
+        "Id": [75286804],
+        "Body": "Write a C Program to Calculate the commission of a salesman considering three regions X,Y,Z depending on the sales amount as follows:\n```\nFOR AREA CODE - X\n\n| sales amount | Commission |\n| --------     | --------   |\n| \u003C1000        | 10%        |\n| \u003C5000        | 12%        |\n| \u003E=5000       | 15%        |\n\n-----------------------------\n\nFOR AREA CODE - Y\n\n| sales amount | Commission |\n| --------     | --------   |\n| \u003C15000       | 10%        |\n| \u003C7000        | 12%        |\n| \u003E=7000       | 15%        |\n\n-----------------------------\n\nFOR AREA CODE - Z\n\n| sales amount | Commission |\n| --------     | --------   |\n| \u003C12000       | 10%        |\n| \u003C5600        | 12%        |\n| \u003E=6500       | 15%        |\n\n-----------------------------\n```\n\nI take the input as a character for the area code and read it, then I take the input for the sales amount and commission to calculate the commission as a float and read, after that, I check the condition like this -\n```\nfloat amt, comission;\n    char area;\n\n    printf(\"Area code is - 'X','Y' & 'Z'\");\n    printf(\"\\nEnter Your Area Code: \");\n    scanf(\"%c\", &area);\n    printf(\"Enter Amount: \");\n    scanf(\"%f\", &amt);\n\n    if (area == 'X' && amt \u003C 1000)\n    {\n        printf(\"You got 10%% Commission\");\n        comission = ((100 - 10) * amt) / 100;\n        printf(\"After Commision The Slaes amount is: %6.2f\", comission);\n        if (amt \u003E= 1000 && amt \u003C 5000)\n        {\n            printf(\"You got 12%% Commission\");\n            comission = ((100 - 12) * amt) / 100;\n            printf(\"After Commision The Slaes amount is: %6.2f\", comission);\n        }\n\n        if (amt \u003E= 5000)\n        {\n            printf(\"You got 15%% Commission\");\n            comission = ((100 - 15) * amt) / 100;\n            printf(\"After Commision The Slaes amount is: %6.2f\", comission);\n        }\n    }\n```\n\n`same codes for Y and Z using else if() condition`.\nBut I did not get the expected output. after read the values my program automatically terminates.\n",
+        "Title": "How do i calculate character and float number in the same if condition in C?",
+        "score": 0.8039262
       },
       {
-        "Id": [
-          75038888
-        ],
-        "Title": "FloatingActionButton over Fragment on SDK 33",
-        "Body": "After read various stackoverflow's questions about floatingactionbutton, like here [Android changing Floating Action Button color](https://stackoverflow.com/questions/30969455/android-changing-floating-action-button-color) which is one of most complete questions about it, and tried various suggestions, I am using fab over a Fragment in an app with `compileSdkVersion 33` , `targetSdkVersion 33` , `implementation 'androidx.appcompat:appcompat:1.5.1'` , plus I settled last version of Material component `implementation 'com.google.android.material:material:1.7.0'` , and in fragment xml I settled as :\n```\n<com.google.android.material.floatingactionbutton.FloatingActionButton\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\n    android:id=\"@+id/fab\"\n    android:layout_width=\"wrap_content\"\n    android:layout_height=\"wrap_content\"\n    android:layout_gravity=\"bottom|end\"\n    android:layout_margin=\"16dp\"\n    app:srcCompat=\"@android:drawable/ic_popup_sync\"\n    app:tint=\"@color/white\"\n    app:backgroundTint=\"@color/fab_enabled\"/>\n```\n\nand in code I tried various ways, as you can see on commented code lines, but seems fab doesn't change background color as disabled even the state corresponds as disabled :\n```\nFloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.fab);\nfab.setOnClickListener(new View.OnClickListener() {\n    @Override\n    public void onClick(View view) {\n        fab.setEnabled(false);\n        //fab.getBackground().set(getContext().getColor(R.color.fab_disabled));\n        //fab.setBackgroundTintList(ColorStateList.valueOf(getContext().getColor(R.color.fab_disabled)));\n        //fab.setBackgroundColor( getContext().getColor(R.color.fab_disabled) );\n        fab.getBackground().mutate().setTint(getContext().getColor(R.color.fab_disabled));\n```\n\ndoes maybe that depend from the material version? Or is maybe related to some refresh needed to show background color changed? Or even because I used a standard java button ( `@android:drawable/ic_popup_sync` ), not a custom one? .... I also tried using a selector instead of color in backgroundTint too to make it changes automatically depending from the current state, but it didn't worked...\n\nI tried to incorporate the listview and the floating action button inside a RelativeLayout to try to see listview cleared as like as I call adapter.clear() and adapter.notifyDataSetChanged() :\n```\n<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<FrameLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    xmlns:tools=\"http://schemas.android.com/tools\"\n\n    android:id=\"@+id/fr_myfragment\"\n    android:layout_width=\"match_parent\"\n    android:layout_height=\"match_parent\"\n    tools:context=\".MyFragment\">\n\n        <RelativeLayout\n            android:layout_width=\"match_parent\"\n            android:layout_height=\"match_parent\">\n\n                <!-- TODO: Update blank fragment layout -->\n                <ListView\n                    android:id=\"@+id/myfragment_list\"\n                    android:layout_width=\"match_parent\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_weight=\"1\"\n                    android:layout_margin=\"5dp\" />\n\n                <com.google.android.material.floatingactionbutton.FloatingActionButton\n                    android:id=\"@+id/fab\"\n                    android:layout_width=\"wrap_content\"\n                    android:layout_height=\"wrap_content\"\n                    android:layout_alignParentEnd=\"true\"\n                    android:layout_alignParentBottom=\"true\"\n                    android:layout_gravity=\"bottom|end\"\n                    android:layout_margin=\"16dp\"\n                    android:backgroundTint=\"@color/fab_colors\"\n                    android:src=\"@android:drawable/ic_popup_sync\" />\n\n        </RelativeLayout>\n\n</FrameLayout>\n```\n\nbut once I click fab button the listview won't clear before to do new search of items to add in listview, neither hide the fab button itself...\nI tried also to change setOnClickListener with setOnTouchListener for fab button to see if fab's behavior could change but doesn't work...\nAnd I'm really stuck on it..... any direction would be appreciate....\nThanks!\n",
-        "score": 4.8409705
+        "Id": [75129431],
+        "Body": "I'm programming in Standard C on several microcontrollers now for about 30 years.\nNow I have a question:\nI have somewhere a variable with type long. The value of this variable does never extend +-0x7fff.\nChoosing \"long\" has other benefits. Because it's a 32 bit machine, arithmetic with 32 bit is faster than 16 or 8 bit (no sign extension needed, this speeds up my fast control algorithm up to 10%...).\nOn the other hand I have a legacy function, that requires this variable as short.\nAt the moment I'm copying this variable somewhere from \"long\" into a \"short\" working variable.\nTo speed my code further up, I want to get rid of this useless copy.\nAs modern CPUs are quite good with pointer operations, I like to access the long variable with a local pointer\n```\nshort * p;\n```\n\nDuring initialization of the module\n```\np = (short *) pointer_to_long_variable\n```\n\nso that I can access this variable simply with\n```\ndo_some_calculations with *p\n```\n\nI think this idea should work on my low-endian machine, but is this save even on machines with big-endianess?\nSorry for my bad English, I'm not a native speaker :)\n",
+        "Title": "Type casting with pointers",
+        "score": 0.8024225
       },
       {
-        "Id": [
-          74981346
-        ],
-        "Body": "```\nLaunching lib\\main.dart on SM M215F in debug mode...\nC:\\DART PROJECT\\pdf scanner\\noturk_docs\\android\\app\\src\\main\\java\\io\\flutter\\plugins\\GeneratedPluginRegistrant.java:34: error: cannot find symbol\n      flutterEngine.getPlugins().add(new io.flutter.plugins.imagepicker.ImagePickerPlugin());\n                                                                       ^\n  symbol:   class ImagePickerPlugin\n  location: package io.flutter.plugins.imagepicker\n1 error\n\nFAILURE: Build failed with an exception.\n\n* What went wrong:\nExecution failed for task ':app:compileDebugJavaWithJavac'.\n> Compilation failed; see the compiler error output for details.\n\n* Try:\n> Run with --stacktrace option to get the stack trace.\n> Run with --info or --debug option to get more log output.\n> Run with --scan to get full insights.\n\n* Get more help at https://help.gradle.org\n\nBUILD FAILED in 34s\nException: Gradle task assembleDebug failed with exit code 1\nExited (sigterm)\n```\n\nthese are the error i got when i tried to run without debugging.i tried many options but none of it is working\n",
-        "Title": "java:34: error: cannot find symbol in flutter GeneratedPluginRegistrant.java file",
-        "score": 4.6656246
+        "Id": [75164224],
+        "Body": "I am trying to just write something that takes a month and date and prints it back out.  I have written the following code:\n```\nint main(void){\n    char month[] = {};\n    int day;\n    printf(\"Please enter the month and day of you date. i.e January 01\\n\\n\");\n    scanf(\"%s,%d\", month, &day);\n    printf(\"Month is %s and the day is %d\\n\", month, day);\n    return 0;\n}\n```\n\nWhen I input a date like  December 22, I get the following print out: Month is December and date is 1. The day value is stuck printing as 1. Why isn't my day integer updating and is instead just staying stuck at 1?\n",
+        "Title": "Why isn't my integer printing out properly in C",
+        "score": 0.7963019
       }
     ]
   }
