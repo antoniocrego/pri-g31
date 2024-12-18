@@ -4,7 +4,7 @@
     "params": {
         "defType": "edismax",
         "qf": "Title^3 Body Tags^2",
-        "bf": "if(eq(Score,0),0,if(eq(Score,-1),-0.15,product(log(abs(Score)),div(Score,abs(Score)))))",
+        "bf": "if(eq(Score,0),0,if(eq(Score,-1),-0.15,if(eq(Score,1),0.15,product(log(abs(Score)),div(Score,abs(Score))))))",
         "pf": "Title^5 Body^3",
         "ps": 2,
         "hl": true,
